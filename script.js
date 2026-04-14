@@ -80,4 +80,14 @@ function updateUI() {
     document.getElementById("remaining").innerText = balance - total;
 }
 
+function editBalance() {
+    let newBalance = prompt("Enter correct balance:", balance);
+
+    if (newBalance !== null && newBalance !== "") {
+        balance = Number(newBalance);
+        localStorage.setItem("balance", balance);
+        updateUI();
+    }
+}
+
 updateUI();
