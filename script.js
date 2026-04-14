@@ -32,20 +32,46 @@ function addExpense() {
     updateUI();
 }
 
+// ✅ DELETE FUNCTION
+function deleteExpense(index) {
+    if (confirm("Delete this expense?")) {
+        expenses.splice(index, 1);
+        localStorage.setItem("expenses", JSON.stringify(expenses));
+        updateUI();
+    }
+}
+
+// ✅ EDIT FUNCTION
+function editExpense(index) {
+    let newAmount = prompt("Enter correct amount:", expenses[index].amount);
+    let newNote = prompt("Edit note:", expenses[index].note);
+
+    if (newAmount !== null && newNote !== null) {
+        expenses[index].amount = Number(newAmount);
+        expenses[index].note = newNote;
+
+        localStorage.setItem("expenses", JSON.stringify(expenses));
+        updateUI();
+    }
+}
+
 function updateUI() {
     let list = document.getElementById("list");
     list.innerHTML = "";
 
     let total = 0;
 
-    expenses.forEach(e => {
+    expenses.forEach((e, index) => {
         total += e.amount;
 
         let li = document.createElement("li");
         li.innerHTML = `
             <b>₹${e.amount}</b><br>
             ${e.note}<br>
-            <small>${e.time}</small>
+            <small>${e.time}</small><br><br>
+
+            <button onclick="editExpense(${index})">✏️ Edit</button>
+            <button onclick="deleteExpense(${index})">🗑️ Delete</button>
         `;
         list.appendChild(li);
     });
