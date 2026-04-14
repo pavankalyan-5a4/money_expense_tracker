@@ -98,3 +98,24 @@ li {
 small {
     opacity: 0.7;
 }
+
+li button {
+    width: 48%;
+    margin-top: 5px;
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 12px;
+}
+
+/* Edit button */
+li button:first-of-type {
+    background: #00E5FF;
+    color: black;
+}
+
+/* Delete button */
+li button:last-of-type {
+    background: #FF4D4D;
+    color: white;
+}
+
