@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Money Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app">
+
+        <div class="header">
+            <h2>💰 Money Tracker</h2>
+            <p>Track your daily spending</p>
+        </div>
+
+        <div class="card">
+            <h3>Balance</h3>
+            <input type="number" id="balanceInput" placeholder="Enter balance">
+            <button onclick="setBalance()">Set Balance</button>
+        </div>
+
+        <div class="card">
+            <h3>Add Expense</h3>
+            <input type="number" id="amount" placeholder="Amount">
+            <input type="text" id="note" placeholder="Short note">
+            <button onclick="addExpense()">+ Add Expense</button>
+        </div>
+
+        <div class="card summary">
+            <div>
+                <p>Total</p>
+                <h2>₹<span id="total">0</span></h2>
+            </div>
+            <div>
+                <p>Remaining</p>
+                <h2>₹<span id="remaining">0</span></h2>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Recent Expenses</h3>
+            <ul id="list"></ul>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
